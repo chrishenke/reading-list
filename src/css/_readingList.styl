@@ -1,0 +1,28 @@
+.reading-list{
+    text-align:center;
+    margin:0 auto;
+    background:brandGreen;
+    position:relative;    
+    &:before{
+        content: '';
+        position:absolute;
+        background:brandGreen;
+        top:-50px;
+        left:0;
+        height:100px;
+        width:100%;
+        z-index:-1;
+        transform:skewY(5deg);
+    }
+    &:after{
+        content: '';
+        position:absolute;
+        background:brandGreen;
+        bottom:-50px;
+        left:0;
+        height:100px;
+        width:100%;
+        z-index:-1;
+        transform:skewY(5deg);
+    }
+}

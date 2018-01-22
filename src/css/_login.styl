@@ -1,0 +1,85 @@
+.buttons{
+  margin:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap:20px;
+}
+button, input[type=submit]{
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid black;
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: all 0.2s;
+  position: relative;
+  z-index: 2;
+  &[disabled]{
+    color red;
+    background white;
+    border-color red;
+    transform rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
+    &:hover{
+      color red;
+      cursor not-allowed;
+      }
+    &:after{
+      display none;
+      }
+    }
+  &:after{
+    content '';
+    z-index -1;
+    display block;
+    background black;
+    position absolute;
+    width 100%;
+    height 0;
+    left 0;
+    top 0;
+    transition all 0.2s;
+    }
+  &:hover, &:focus{
+    color white;
+    outline 0;
+    &:after{
+      height 100%
+      }
+    }
+  // variants
+  &.warning{
+    &:after{
+      background red
+      }
+    }
+  &.success{
+    &:after{
+      background green
+      }
+    }
+  &.github, &.facebook, &.twitter{
+    border 0
+    display block
+    margin-bottom 2rem
+    width 100%
+    color white
+    padding 2rem
+    }
+  &.github{
+    background #333;
+    &:after {
+      background darken(#333, 20%)
+      }
+    }
+  &.facebook{
+    background #3864A3
+    &:after{
+      background darken(#3864A3, 20%)
+    }
+}
+  &.twitter{
+    background #5EA9DD
+    &:after{
+      background darken(#5EA9DD, 20%)
+      }
+    }
+}

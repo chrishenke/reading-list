@@ -1,14 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Welcome from './components/Welcome'
+import { 
+    BrowserRouter as Router,
+    Route,
+    Switch
+} from "react-router-dom";
 import "./css/style.css";
+import Welcome from "./components/Welcome";
+import App from "./components/App";
+import NotFound from "./components/NotFound";
 
-class Root extends React.Component{
-    render(){
-        return(
-            <Welcome />
-        );
-    }
+const Root = (props) => {
+    return <Router>
+        <Switch>
+          <Route exact path="/" component={Welcome} />
+          <Route path="/list/:listId" component={App} />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>;
 }
-
-render(<Root />, document.querySelector('#app'));
+render(<Root />, document.querySelector('#root'));
