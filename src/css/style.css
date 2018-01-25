@@ -288,6 +288,26 @@ input::-moz-focus-inner {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+.quote {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  grid-gap: 20px;
+  padding: 2rem;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+}
+.quote--text {
+  font-size: 4rem;
+  letter-spacing: 0.1em;
+  font-weight: 200;
+}
+.quote--author {
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+}
 .reading-list {
   text-align: center;
   margin: 0 auto;
