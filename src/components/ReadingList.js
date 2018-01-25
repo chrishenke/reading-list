@@ -2,6 +2,7 @@ import React from 'react';
 import base from "../base";
 import { auth, provider } from "../base";
 import AddItemForm from "./AddItemForm";
+import PropTypes from "prop-types";
 
 class ReadingList extends React.Component {
   state = {
@@ -40,7 +41,7 @@ class ReadingList extends React.Component {
       context: this
     })
     .then(listData => {
-      console.log(listData);
+
       if (!listData.owner) {
         console.log("no owner");
         base
@@ -77,7 +78,7 @@ class ReadingList extends React.Component {
       <div className="login">
         <h2>Your Reading List</h2>
         <p>Sign in to manage your reading list.</p>
-        <div class="buttons">
+        <div className="buttons">
           <button className="github" onClick={() => this.authenticate()}>
             Log in with Github
           </button>
@@ -111,6 +112,11 @@ class ReadingList extends React.Component {
         </div>;
     }
   }
+}
+
+ReadingList.propTypes = {
+  readingList: PropTypes.object,
+  listId: PropTypes.string.isRequired
 }
 
 export default ReadingList;
